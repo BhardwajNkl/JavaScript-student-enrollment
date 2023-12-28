@@ -1,0 +1,207 @@
+body{
+    /* setting height just so that i can apply the footer to the bottom of the page */
+    min-height: 100vh;
+}
+
+
+/* TEMPORARY SOLUTION TO THE PROBLEM OF SHIFT IN LAYOUT DUE TO SCROLLBAR COMING ON SCREEN */
+/* The problem i faced: When the content div was filled by text/image the page gets a scrollbar.
+And due to this scrollbar's width, there is a sudden minor shift in the layout of the page.
+This creates a bad impression on the user of the web page.
+So, to prevent this from happening, I am hiding the scrollbar. The page can still be scrolled up and down, but
+the scrollbar won't be visible.
+*/
+::-webkit-scrollbar{
+    display:none;
+}
+
+
+
+.header{
+color: white;
+text-align: center;
+border-style: solid;
+border-color: green;
+border-top-width: 1px;
+border-bottom-width: 1px;
+border-left-width: 2px;
+border-right-width: 2px;
+background-color:#32c795;
+}
+
+.content{
+border-left-style: solid;
+border-left-width: 2px;
+border-left-color: gray;
+border-right-style: solid;
+border-right-width: 2px;
+border-right-color: black;
+margin-bottom: 10px;
+}
+
+.left-content{
+border-right-style: solid;
+border-width: 2px;
+border-color: #32c795;
+}
+
+input.form-control{
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+}
+
+.form-check{
+    text-align: left;
+}
+
+.button-wrapper{
+    text-align: left;
+    padding-left: 10%;
+}
+.button-wrapper button{
+    padding-left: 10%;
+    padding-right: 10%;
+   
+    margin-right: 5%;
+    
+}
+.col-form-label{
+    text-align: left;
+    padding-left: 10%;
+}
+
+/* This style applies to the text that is displayed as validation error. */
+.validation{
+    color: #678214;
+}
+
+.right-content h3{
+    text-align: center;
+
+}
+
+.right-content table{
+    width: 75%;
+    margin-left: 15%;
+    margin-top: 5%;
+    font-size: 15px;
+    border-color: #678214;
+}
+
+.right-content table th{
+    background-color: #678214;
+    color: white;
+    border-width: 2px;
+}
+.right-content table td{
+    border-style: solid;
+    border-width: 2px;
+}
+.right-content table .columnDescription{
+    width: 70%;
+   
+}
+.right-content table .columnImage{
+    width: 30%;
+}
+
+.student-info{
+    padding-left: 2%;
+}
+.student-info a{
+    padding-left: 0px;
+}
+
+@keyframes newStudentRecord {
+    from{
+        background-color: yellowgreen;
+        opacity: 0.2;
+    }
+    to{
+        background-color: white;
+        opacity: 1;
+    }
+}
+
+/*
+The row for student record that will be inserted in the table is created dynamically by javascript code
+This row gets a class as 'record'.
+The row comes with a fade-in effect. So, for that we apply an animation.
+*/
+.record{
+    animation: newStudentRecord 4s;
+}
+
+
+.footer{
+    text-align: center;
+    color: white;
+    background-color: #32c795;
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+
+    /* We want the footer to be on the bottom of the page */
+    position: sticky;
+    top: 100%;
+
+}
+
+
+/* for the div that will be shown when user wants to clear the form. It is hiden by default */
+.clear-prompt{
+    text-align:center;
+    height:auto;
+    width:20%;
+    left:40%;
+    position:absolute;
+    top:10%;
+    color:black;
+    background-color: rgb(66, 215, 215);
+    border-radius: 10%;
+    padding-bottom: 1%;
+    display: none;
+}
+/*
+When the user clicks 'clear' button, the 'clear-prompt' div gets another class amed 'active' added to it.
+the clear-prompt div will be displayed when it's class is 'active'.
+*/
+.clear-prompt.active{
+    display: block;
+}
+.clear-prompt button{
+    width: 25%;
+}
+
+/* 
+style for the enrollment succes message div.
+By default this div is hidden.
+When, a record is successfully added, this div gets another class as 'active'.
+*/
+.enrollment-confirmation{
+    text-align:center;
+    height:auto;
+    width:20%;
+    left:40%;
+    position:absolute;
+    top:10%;
+    color:green;
+    border-radius: 10%;
+    padding-bottom: 1%;
+    display: none;
+}
+
+ @keyframes enrolllmentConfirmation {
+    from{
+        background-color: rgb(66, 215, 215);
+    }
+    to{
+        background-color: white;
+    }
+}
+
+.enrollment-confirmation.active{
+    animation: enrolllmentConfirmation 3s;
+    display: block;
+}
